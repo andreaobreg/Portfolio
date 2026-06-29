@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andrea Obregon — Neuroscience, Psychology & Marketing</title>
+  <style>
+    :root {
+      --blue-dark:    #0a2540;
+      --blue-mid:     #1a4f8a;
+      --blue-accent:  #2d7dd2;
+      --blue-light:   #e8f1fb;
+      --text-primary: #0a2540;
+      --text-muted:   #6b7c93;
+      --white:        #ffffff;
+      --border:       #d6e4f5;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      color: var(--text-primary);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 6vw;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      color: var(--blue-dark);
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--blue-accent); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 9rem 6vw 5rem;
+    }
+
+    .hero-grid {
+      max-width: 720px;
+      width: 100%;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 5.5vw, 4.6rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--blue-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-sub {
+      font-size: 1.12rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary { background: var(--blue-accent); color: var(--white); }
+    .btn-primary:hover { background: var(--blue-mid); }
+
+    .btn-outline { border: 1.5px solid var(--blue-accent); color: var(--blue-accent); }
+    .btn-outline:hover { background: var(--blue-light); }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 6rem 6vw; }
+    section:nth-child(even) { background: var(--blue-light); }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--blue-dark);
+      margin-bottom: 3rem;
+    }
+
+    /* ── ABOUT ── */
+    #about .about-inner {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 5rem;
+      max-width: 1000px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    .about-stats { display: flex; flex-direction: column; gap: 1.75rem; }
+
+    .stat { border-left: 3px solid var(--blue-accent); padding-left: 1.25rem; }
+
+    .stat-number { font-size: 2rem; font-weight: 700; color: var(--blue-dark); line-height: 1; }
+
+    .stat-label { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem; letter-spacing: 0.03em; }
+
+    /* ── EXPERIENCE ── */
+    .exp-list { max-width: 800px; }
+
+    .exp-item { padding: 2rem 0; border-bottom: 1px solid var(--border); }
+    .exp-item:last-child { border-bottom: none; }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .exp-role { font-size: 1.05rem; font-weight: 700; color: var(--blue-dark); }
+
+    .exp-date { font-size: 0.8rem; color: var(--text-muted); white-space: nowrap; padding-top: 0.15rem; }
+
+    .exp-company { font-size: 0.88rem; color: var(--blue-accent); font-weight: 600; margin-bottom: 0.75rem; }
+
+    .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+
+    .exp-bullets li {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    .exp-bullets li::before { content: '–'; position: absolute; left: 0; color: var(--blue-accent); }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+    }
+
+    .skill-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 1.5rem; }
+
+    .skill-card h3 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      margin-bottom: 0.85rem;
+    }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    .tag {
+      background: var(--blue-light);
+      color: var(--blue-mid);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.3rem 0.75rem;
+      border-radius: 99px;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem 2.5rem;
+      max-width: 700px;
+    }
+
+    .edu-school { font-size: 1.15rem; font-weight: 700; color: var(--blue-dark); margin-bottom: 0.3rem; }
+    .edu-degree { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .edu-meta { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .edu-meta span { font-size: 0.83rem; color: var(--blue-accent); font-weight: 600; }
+
+    /* ── CLUBS ── */
+    .clubs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      max-width: 900px;
+    }
+
+    .club-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.1rem 1.35rem;
+      border-left: 3px solid var(--blue-accent);
+    }
+
+    .club-name { font-size: 0.95rem; font-weight: 700; color: var(--blue-dark); margin-bottom: 0.15rem; }
+    .club-role { font-size: 0.82rem; color: var(--text-muted); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--blue-dark); color: var(--white); }
+    #contact .section-label { color: var(--blue-accent); }
+    #contact h2 { color: var(--white); margin-bottom: 1rem; }
+
+    .contact-sub { color: rgba(255,255,255,0.6); font-size: 1rem; margin-bottom: 2.5rem; }
+
+    .contact-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      border-radius: 4px;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .contact-links a:hover { border-color: var(--blue-accent); background: rgba(45,125,210,0.15); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--blue-dark);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 1.5rem 6vw;
+      text-align: center;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      #about .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .exp-header { flex-direction: column; gap: 0.25rem; }
+      nav { padding: 1rem 5vw; }
+      .nav-links { gap: 1.5rem; }
+    }
+
+    @media (max-width: 560px) {
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#hero">Andrea Obregon</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#clubs">Involvement</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid">
+      <div class="hero-inner">
+        <span class="hero-tag">Neuroscience · Psychology · Marketing</span>
+        <h1>Andrea<br>Obregon.</h1>
+        <p class="hero-sub">
+          Rising junior at Northwestern studying Neuroscience and Psychology, driven by a desire to help others. Curious about how people think, learn, and develop — and passionate about the intersection of science, communication, and impact.
+        </p>
+        <div class="hero-cta">
+          <a href="#experience" class="btn btn-primary">My Experience</a>
+          <a href="#contact" class="btn btn-outline">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">About</div>
+    <h2>Driven by helping others.</h2>
+    <div class="about-inner">
+      <div class="about-text">
+        <p>
+          A constant throughout my academic journey has been my goal to help other people. Much of my growth has come through volunteer work — tutoring and teaching students from kindergarten through high school — where I learned how differently people interact with their environment based on their unique ways of learning.
+        </p>
+        <p>
+          I'm drawn to Psychology, Neuroscience, and Marketing alike because I believe the power of helping people can extend in many directions. Through my coursework and my research at the Infant &amp; Child Development Center, I've begun to understand the mechanisms behind human behavior — and through marketing, especially when grounded in that behavior, I see a way to connect with people and extend that impact to a far larger audience.
+        </p>
+      </div>
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-number">3.9</div>
+          <div class="stat-label">GPA — Dean's List, 6 of 6 quarters</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">2 + 1</div>
+          <div class="stat-label">Majors in Neuroscience &amp; Psychology, plus a Marketing Certificate</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">EN/ES</div>
+          <div class="stat-label">Fluent English &amp; Native Spanish</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label">Experience</div>
+    <h2>What I've worked on.</h2>
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-role">Research Assistant &amp; Baker Undergraduate Research Fellow</div>
+          <div class="exp-date">Jun 2025 – Present</div>
+        </div>
+        <div class="exp-company">Infant &amp; Child Development Center, Northwestern University — PI: Sandra Waxman</div>
+        <ul class="exp-bullets">
+          <li>Joined as a Research Assistant in June 2025; awarded the Baker Undergraduate Research Fellowship in June 2026.</li>
+          <li>Contribute to studies examining racial category formation in infants aged 8–14 months via video coding, behavioral data annotation, and data analysis.</li>
+          <li>Administer in-person developmental studies including eye-tracking sessions with children aged 11 months to 6 years.</li>
+          <li>Support participant recruitment through social media outreach.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-role">Clinical Observer</div>
+          <div class="exp-date">Jun – Sep 2025</div>
+        </div>
+        <div class="exp-company">Children's Neuropsychological Center KER — Mexico City</div>
+        <ul class="exp-bullets">
+          <li>Shadowed therapists in sessions involving mobility, writing support, and cognitive stimulation.</li>
+          <li>Observed psychological evaluations of children aged 6–11 for diagnosis and therapy formulation.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-role">Research Summer Analyst</div>
+          <div class="exp-date">Aug – Sep 2025</div>
+        </div>
+        <div class="exp-company">CO_Capital — Impact Investment Fund, Mexico City</div>
+        <ul class="exp-bullets">
+          <li>Developed a 14-page internal framework on non-extractive interest rate methodologies through literature review and 8 expert interviews across peer organizations.</li>
+          <li>Synthesized qualitative research into actionable strategic recommendations.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-role">Intern — Personnel &amp; Culture</div>
+          <div class="exp-date">Aug – Sep 2024</div>
+        </div>
+        <div class="exp-company">Dentalia — Mexico City (150k+ patients/yr)</div>
+        <ul class="exp-bullets">
+          <li>Analyzed data, surveys, and interviews to redesign a recruitment and training framework for a high-friction customer service position.</li>
+          <li>Presented findings to branch directors at senior-level meetings, translating data insights into organizational change.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-role">Product Management Intern</div>
+          <div class="exp-date">Dec 2023 – Mar 2024</div>
+        </div>
+        <div class="exp-company">Yana — VC-backed mental health app, Mexico City</div>
+        <ul class="exp-bullets">
+          <li>Localized three 30–45-page product documents to support the app's US market launch, managing stakeholder communications and editorial rationale independently.</li>
+          <li>Gained hands-on experience in digital product strategy and cross-cultural content adaptation.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">Skills</div>
+    <h2>What I bring to the table.</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Research &amp; Analysis</h3>
+        <div class="skill-tags">
+          <span class="tag">Behavioral Research</span>
+          <span class="tag">Video Coding</span>
+          <span class="tag">Data Annotation</span>
+          <span class="tag">Eye-tracking Studies</span>
+          <span class="tag">Qualitative Interviews</span>
+          <span class="tag">Statistical Analysis</span>
+          <span class="tag">Literature Review</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Psychology &amp; Behavior</h3>
+        <div class="skill-tags">
+          <span class="tag">Cognitive Psychology</span>
+          <span class="tag">Social Psychology</span>
+          <span class="tag">Developmental Science</span>
+          <span class="tag">Learning &amp; Engagement Patterns</span>
+          <span class="tag">Human Decision-Making</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Communication &amp; Teaching</h3>
+        <div class="skill-tags">
+          <span class="tag">Tutoring &amp; Mentorship</span>
+          <span class="tag">Public Speaking</span>
+          <span class="tag">Speech Coaching</span>
+          <span class="tag">Stakeholder Communication</span>
+          <span class="tag">Cross-cultural Localization</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Tools &amp; Languages</h3>
+        <div class="skill-tags">
+          <span class="tag">English (Fluent)</span>
+          <span class="tag">Spanish (Native)</span>
+          <span class="tag">Datavyu</span>
+          <span class="tag">Python (Intro)</span>
+          <span class="tag">Microsoft Office</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Laboratory</h3>
+        <div class="skill-tags">
+          <span class="tag">Titrations</span>
+          <span class="tag">Buffer Solutions</span>
+          <span class="tag">Pipetting</span>
+          <span class="tag">Immunofluorescence</span>
+          <span class="tag">Plate Reader Analysis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-label">Education</div>
+    <h2>Foundation.</h2>
+    <div class="edu-card">
+      <div class="edu-school">Northwestern University</div>
+      <div class="edu-degree">
+        B.A. in Neuroscience &amp; Psychology · Medill Integrated Marketing Certificate
+      </div>
+      <div class="edu-meta">
+        <span>Expected 2028</span>
+        <span>GPA 3.895 / 4.00</span>
+        <span>Dean's List — 6/6 quarters</span>
+      </div>
+    </div>
+    <div class="edu-card" style="margin-top: 1rem;">
+      <div class="edu-school">The University of Hong Kong</div>
+      <div class="edu-degree">
+        Study Abroad
+      </div>
+      <div class="edu-meta">
+        <span>August – December 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLUBS -->
+  <section id="clubs">
+    <div class="section-label">Involvement</div>
+    <h2>Clubs &amp; volunteering.</h2>
+    <div class="clubs-grid">
+      <div class="club-card">
+        <div class="club-name">Psi Chi Honors Society in Psychology</div>
+        <div class="club-role">Communications Chair · 2026 – Present</div>
+      </div>
+      <div class="club-card">
+        <div class="club-name">NU Active Minds</div>
+        <div class="club-role">Outreach &amp; External Education Co-Chair · 2026 – Present</div>
+      </div>
+      <div class="club-card">
+        <div class="club-name">NU Undergraduate Psychology Association</div>
+        <div class="club-role">Member · 2025 – Present</div>
+      </div>
+      <div class="club-card">
+        <div class="club-name">Learn to Be</div>
+        <div class="club-role">Volunteer Tutor · 2025 – Present</div>
+      </div>
+      <div class="club-card">
+        <div class="club-name">UPchieve</div>
+        <div class="club-role">Volunteer Tutor · 2025 – Present</div>
+      </div>
+      <div class="club-card">
+        <div class="club-name">NU Heights</div>
+        <div class="club-role">Shift Leader · 2024 – 2025</div>
+      </div>
+      <div class="club-card">
+        <div class="club-name">NU MiniChefz</div>
+        <div class="club-role">Member · 2025 – Present</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">Contact</div>
+    <h2>Let's connect.</h2>
+    <p class="contact-sub">
+      Open to marketing roles, internships, and research collaborations.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:andreaobregon@u.northwestern.edu">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        Email Me
+      </a>
+      <a href="https://www.linkedin.com/in/andrea-obregon-a5bb2332b/" target="_blank" rel="noopener">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Andrea Obregon Alonso
+  </footer>
+
+</body>
+</html>
