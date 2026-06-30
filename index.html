@@ -205,6 +205,49 @@
 
     .exp-bullets li::before { content: '–'; position: absolute; left: 0; color: var(--blue-accent); }
 
+    /* ── FEATURED PROJECT ── */
+    .feature-project {
+      max-width: 950px;
+      background: var(--blue-dark);
+      color: var(--white);
+      border-radius: 18px;
+      padding: 2.5rem 2.75rem;
+      margin-bottom: 3rem;
+    }
+
+    .feature-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      margin-bottom: 1rem;
+    }
+
+    .feature-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+
+    .feature-desc {
+      font-size: 1.02rem;
+      line-height: 1.7;
+      color: rgba(250,247,242,0.78);
+      max-width: 640px;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    .feature-tags .tag {
+      background: rgba(250,247,242,0.1);
+      color: rgba(250,247,242,0.92);
+    }
+
     /* ── SKILLS ── */
     .skills-grid {
       display: grid;
@@ -419,6 +462,22 @@
   <section id="experience">
     <div class="section-label">Experience</div>
     <h2>What I've worked on.</h2>
+
+    <div class="feature-project">
+      <div class="feature-eyebrow">Featured Project</div>
+      <div class="feature-title">A web dashboard for my research lab.</div>
+      <p class="feature-desc">
+        My research team was tracking participant and study data across scattered spreadsheets. I taught myself to design and build a live web dashboard that brings it all into one place — making it faster and clearer for the team to recruit, track, and report. A small idea, shipped into a real tool people use.
+      </p>
+      <div class="feature-tags">
+        <span class="tag">Product Design</span>
+        <span class="tag">Web App</span>
+        <span class="tag">Database (Supabase)</span>
+        <span class="tag">Deployed on Vercel</span>
+        <span class="tag">Self-taught</span>
+      </div>
+    </div>
+
     <div class="exp-list">
 
       <div class="exp-item">
@@ -620,7 +679,6 @@
     <div class="photo-masonry">
       <img src="blue1.jpg" alt="" loading="lazy" />
       <img src="blue2.jpg" alt="" loading="lazy" />
-      <img src="blue3.jpg" alt="" loading="lazy" />
       <img src="blue4.jpg" alt="" loading="lazy" />
       <img src="blue5.jpg" alt="" loading="lazy" />
       <img src="blue6.jpg" alt="" loading="lazy" />
