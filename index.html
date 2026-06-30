@@ -4,16 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Andrea Obregon — Neuroscience, Psychology & Marketing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --blue-dark:    #0a2540;
-      --blue-mid:     #1a4f8a;
-      --blue-accent:  #2d7dd2;
-      --blue-light:   #e8f1fb;
-      --text-primary: #0a2540;
-      --text-muted:   #6b7c93;
-      --white:        #ffffff;
-      --border:       #d6e4f5;
+      --blue-dark:    #1c3047;   /* soft ink navy */
+      --blue-mid:     #41617f;   /* muted slate blue */
+      --blue-accent:  #6b8fb0;   /* dusty powder blue */
+      --blue-light:   #eef2f4;   /* pale blue-grey wash */
+      --text-primary: #2b3440;   /* warm charcoal */
+      --text-muted:   #8a8378;   /* warm taupe-grey */
+      --white:        #faf7f2;   /* warm cream canvas */
+      --card:         #fffdfa;   /* near-white card */
+      --border:       #e7e0d6;   /* soft warm border */
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -35,15 +39,16 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.25rem 6vw;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(8px);
+      background: rgba(250,247,242,0.88);
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
 
     .nav-logo {
-      font-weight: 700;
-      font-size: 1rem;
-      letter-spacing: 0.04em;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 500;
+      font-size: 1.2rem;
+      letter-spacing: 0;
       color: var(--blue-dark);
       text-decoration: none;
     }
@@ -86,9 +91,10 @@
     }
 
     h1 {
-      font-size: clamp(2.6rem, 5.5vw, 4.6rem);
-      font-weight: 700;
-      line-height: 1.08;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(3rem, 6vw, 5.2rem);
+      font-weight: 400;
+      line-height: 1.02;
       letter-spacing: -0.02em;
       color: var(--blue-dark);
       margin-bottom: 1.5rem;
@@ -106,11 +112,11 @@
 
     .btn {
       display: inline-block;
-      padding: 0.75rem 1.75rem;
-      border-radius: 4px;
+      padding: 0.85rem 2rem;
+      border-radius: 99px;
       font-size: 0.88rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
+      font-weight: 500;
+      letter-spacing: 0.02em;
       text-decoration: none;
       transition: all 0.2s;
     }
@@ -135,9 +141,10 @@
     }
 
     h2 {
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(2rem, 3.4vw, 3rem);
+      font-weight: 400;
+      letter-spacing: -0.015em;
       color: var(--blue-dark);
       margin-bottom: 3rem;
     }
@@ -162,7 +169,7 @@
 
     .stat { border-left: 3px solid var(--blue-accent); padding-left: 1.25rem; }
 
-    .stat-number { font-size: 2rem; font-weight: 700; color: var(--blue-dark); line-height: 1; }
+    .stat-number { font-family: 'Fraunces', Georgia, serif; font-size: 2.4rem; font-weight: 400; color: var(--blue-dark); line-height: 1; }
 
     .stat-label { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem; letter-spacing: 0.03em; }
 
@@ -206,7 +213,7 @@
       max-width: 1300px;
     }
 
-    .skill-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 1.5rem; }
+    .skill-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; }
 
     .skill-card h3 {
       font-size: 0.82rem;
@@ -230,9 +237,9 @@
 
     /* ── EDUCATION ── */
     .edu-card {
-      background: var(--white);
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 14px;
       padding: 2rem 2.5rem;
       max-width: 700px;
     }
@@ -251,15 +258,52 @@
     }
 
     .club-card {
-      background: var(--white);
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 1.1rem 1.35rem;
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
       border-left: 3px solid var(--blue-accent);
     }
 
     .club-name { font-size: 0.95rem; font-weight: 700; color: var(--blue-dark); margin-bottom: 0.15rem; }
     .club-role { font-size: 0.82rem; color: var(--text-muted); }
+
+    /* ── PERSONAL / BLUE ── */
+    #personal { background: var(--white); }
+
+    .personal-intro { max-width: 760px; margin-bottom: 3.5rem; }
+
+    .personal-statement {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.015em;
+      color: var(--blue-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .personal-statement em { font-style: italic; color: var(--blue-accent); }
+
+    .personal-sub { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; max-width: 620px; }
+
+    .photo-masonry {
+      columns: 3;
+      column-gap: 1.1rem;
+      max-width: 1300px;
+    }
+
+    .photo-masonry img {
+      width: 100%;
+      margin-bottom: 1.1rem;
+      border-radius: 14px;
+      display: block;
+      break-inside: avoid;
+      box-shadow: 0 8px 28px rgba(28,48,71,0.10);
+    }
+
+    @media (max-width: 860px) { .photo-masonry { columns: 2; } }
+    @media (max-width: 520px) { .photo-masonry { columns: 1; } }
 
     /* ── CONTACT ── */
     #contact { background: var(--blue-dark); color: var(--white); }
@@ -274,9 +318,9 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.7rem 1.5rem;
-      border: 1.5px solid rgba(255,255,255,0.25);
-      border-radius: 4px;
+      padding: 0.75rem 1.6rem;
+      border: 1.5px solid rgba(250,247,242,0.3);
+      border-radius: 99px;
       color: var(--white);
       text-decoration: none;
       font-size: 0.88rem;
@@ -319,6 +363,7 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#clubs">Involvement</a></li>
+      <li><a href="#personal">Personal</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -563,6 +608,25 @@
     </div>
   </section>
 
+  <!-- PERSONAL -->
+  <section id="personal">
+    <div class="section-label">Personal</div>
+    <div class="personal-intro">
+      <div class="personal-statement">Blue is how I <em>see the world.</em></div>
+      <p class="personal-sub">
+        People always notice that everything around me is blue. It's more than a color — it's curiosity, calm, and the way I notice the world. These are a few of my favorite places, seen in blue.
+      </p>
+    </div>
+    <div class="photo-masonry">
+      <img src="blue1.jpg" alt="" loading="lazy" />
+      <img src="blue2.jpg" alt="" loading="lazy" />
+      <img src="blue3.jpg" alt="" loading="lazy" />
+      <img src="blue4.jpg" alt="" loading="lazy" />
+      <img src="blue5.jpg" alt="" loading="lazy" />
+      <img src="blue6.jpg" alt="" loading="lazy" />
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-label">Contact</div>
@@ -571,7 +635,7 @@
       Open to marketing roles, internships, and research collaborations.
     </p>
     <div class="contact-links">
-      <a href="mailto:andreaobregon@u.northwestern.edu">
+      <a href="mailto:andreaobregon@northwestern.edu">
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
         Email Me
       </a>
