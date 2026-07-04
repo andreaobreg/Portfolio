@@ -248,6 +248,22 @@
       color: rgba(250,247,242,0.92);
     }
 
+    .feature-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.75rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--white);
+      text-decoration: none;
+      border-bottom: 1.5px solid var(--blue-accent);
+      padding-bottom: 3px;
+      transition: gap 0.2s, color 0.2s;
+    }
+    .feature-link:hover { gap: 0.85rem; color: var(--blue-accent); }
+
     /* ── SKILLS ── */
     .skills-grid {
       display: grid;
@@ -486,6 +502,10 @@
         <span class="tag">Deployed on Vercel</span>
         <span class="tag">Self-taught</span>
       </div>
+      <a class="feature-link" href="dashboard.html">
+        Read the full case study
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
 
     <div class="exp-list">
@@ -497,6 +517,7 @@
         </div>
         <div class="exp-company">Infant &amp; Child Development Center, Northwestern University — PI: Sandra Waxman</div>
         <ul class="exp-bullets">
+          <li>Awarded the competitive Baker Undergraduate Research Fellowship (Summer 2026) to support full-time research with the lab.</li>
           <li>Contribute to the Faces &amp; Faces Alternating projects examining racial category formation in infants aged 8–14 months, through video coding, behavioral data annotation, and data analysis.</li>
           <li>Administer in-person studies with infants aged 11 months to 6 years — preparing testing rooms, running eye-tracking sessions, conducting participant interviews, and managing post-session procedures.</li>
           <li>Support lab operations including data entry, calendar management, and participant recruitment via social media.</li>
@@ -636,7 +657,6 @@
         <span>Expected June 2028</span>
         <span>GPA 3.895 / 4.00</span>
         <span>Dean's List — 6/6 quarters</span>
-        <span>Baker Undergraduate Research Fellow</span>
       </div>
     </div>
     <div class="edu-card" style="margin-top: 1rem;">

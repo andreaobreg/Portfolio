@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab Dashboard — Case Study · Andrea Obregon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --blue-dark:    #1c3047;
+      --blue-mid:     #41617f;
+      --blue-accent:  #6b8fb0;
+      --blue-light:   #eef2f4;
+      --text-primary: #2b3440;
+      --text-muted:   #8a8378;
+      --white:        #faf7f2;
+      --card:         #fffdfa;
+      --border:       #e7e0d6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      color: var(--text-primary);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    .wrap { max-width: 820px; margin: 0 auto; padding: 4rem 6vw 6rem; }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--blue-mid);
+      text-decoration: none;
+      margin-bottom: 3.5rem;
+      transition: color 0.2s;
+    }
+    .back:hover { color: var(--blue-accent); }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--blue-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .lede {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 680px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1.25rem 2rem;
+      padding: 1.75rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3.5rem;
+    }
+    .meta-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      margin-bottom: 0.35rem;
+    }
+    .meta-value { font-size: 0.92rem; color: var(--text-primary); }
+
+    h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--blue-dark);
+      margin: 3.5rem 0 1.1rem;
+    }
+
+    p { font-size: 1.05rem; color: var(--text-primary); margin-bottom: 1.25rem; max-width: 680px; }
+    p.muted { color: var(--text-muted); }
+
+    ul.pretty { list-style: none; margin: 0 0 1.5rem; max-width: 680px; }
+    ul.pretty li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.7rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    ul.pretty li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0.62em;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--blue-accent);
+    }
+    ul.pretty strong { color: var(--blue-dark); font-weight: 600; }
+
+    figure { margin: 2.5rem 0; }
+    figure img {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 36px rgba(28,48,71,0.12);
+      display: block;
+      background: var(--blue-light);
+    }
+    figcaption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 0.85rem;
+      font-style: italic;
+      font-family: 'Fraunces', Georgia, serif;
+    }
+
+    .pull {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      line-height: 1.3;
+      color: var(--blue-dark);
+      border-left: 3px solid var(--blue-accent);
+      padding-left: 1.5rem;
+      margin: 3.5rem 0;
+      max-width: 700px;
+    }
+
+    .cta {
+      margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .cta a {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      border-radius: 99px;
+      background: var(--blue-dark);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .cta a:hover { background: var(--blue-mid); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <a class="back" href="index.html">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      Back to Andrea Obregon
+    </a>
+
+    <div class="eyebrow">Case Study · Featured Project</div>
+    <h1>The dashboard my research lab runs on.</h1>
+    <p class="lede">
+      A self-taught web app I designed and built to give my research team one shared place to know what to do, who's doing it, and how every study is progressing — now a core part of how the lab operates day to day.
+    </p>
+
+    <div class="meta">
+      <div>
+        <div class="meta-label">My Role</div>
+        <div class="meta-value">Designer &amp; Builder (solo)</div>
+      </div>
+      <div>
+        <div class="meta-label">Timeline</div>
+        <div class="meta-value">2026</div>
+      </div>
+      <div>
+        <div class="meta-label">Built With</div>
+        <div class="meta-value">AI-Assisted · Supabase · Vercel</div>
+      </div>
+      <div>
+        <div class="meta-label">Status</div>
+        <div class="meta-value">Live &amp; in daily use</div>
+      </div>
+    </div>
+
+    <h2>The problem</h2>
+    <p>
+      Our lab had no centralized place to assign and track work. Tasks lived in people's heads, in scattered messages, and across separate documents — so no one was quite sure who owned what, or what to do next. I saw the friction this caused every day, so — with no formal coding background — I used AI tools to help me design and build one shared source of truth, learning as I went.
+    </p>
+
+    <h2>Built for every role</h2>
+    <p>
+      A lab isn't one kind of user, so I built <strong>role-based sign-in</strong> — RAs, grad students, and coordinators each land in a view tailored to them, opening on their progress and priorities so no one has to wonder where to start.
+    </p>
+    <figure>
+      <img src="dash-login.jpg" alt="Role-based sign-in screen" />
+      <figcaption>Role-based sign-in — everyone gets the view that's relevant to them.</figcaption>
+    </figure>
+    <figure>
+      <img src="dash-dashboard.jpg" alt="Personalized dashboard home" />
+      <figcaption>A personalized home — progress, priorities, and shortcuts in one place.</figcaption>
+    </figure>
+
+    <h2>Assigning &amp; planning the work</h2>
+    <p>
+      Tasks can be assigned to a person or dropped into an <strong>"open to any RA"</strong> pool — each with a priority, due date, and progress. A drag-and-drop weekly planner then turns that list into a realistic plan.
+    </p>
+    <figure>
+      <img src="dash-tasks.jpg" alt="Task assignment and delegation view" />
+      <figcaption>Task delegation — assigned, available to pick up, and assigned to others.</figcaption>
+    </figure>
+    <figure>
+      <img src="dash-weekplan.jpg" alt="Weekly planner with drag and drop" />
+      <figcaption>The week planner — drag tasks between days to reschedule.</figcaption>
+    </figure>
+
+    <h2>Studies &amp; recruitment</h2>
+    <p>
+      Every study lives in one place with its lead and phase, plus an <strong>eligibility finder</strong> that surfaces which studies a participant qualifies for by age. And an outreach board lets anyone post an event that teammates claim with one <strong>"Sign me up"</strong> click — no more reply-all threads.
+    </p>
+    <figure>
+      <img src="dash-studies.jpg" alt="Studies overview and eligibility finder" />
+      <figcaption>Study tracking with a built-in participant eligibility finder.</figcaption>
+    </figure>
+    <figure>
+      <img src="dash-outreach.jpg" alt="Community outreach opportunity board" />
+      <figcaption>The outreach board — post an opportunity, sign up in one click.</figcaption>
+    </figure>
+
+    <h2>A view for coordinators</h2>
+    <p>
+      Coordinators get an admin view: lab-wide stats at a glance, team management with PIN resets, and a shared calendar that appears on everyone's dashboard.
+    </p>
+    <figure>
+      <img src="dash-admin.jpg" alt="Coordinator lab overview with stats and settings" />
+      <figcaption>The coordinator view — lab-wide health, team management, and shared settings.</figcaption>
+    </figure>
+
+    <p class="pull">
+      A small idea — "we need one place for this" — turned into a tool the whole team now relies on.
+    </p>
+
+    <h2>What I took away</h2>
+    <p>
+      I started with no formal coding background — just a problem I was determined to solve and the willingness to figure it out. By <strong>directing AI tools</strong> toward a clear vision, I taught myself what I needed and built something genuinely new for my lab: a tool that didn't exist before, that the whole team now relies on every day. I'm really proud of it, most of all because it made a real difference for the people I work with. It showed me how far <strong>initiative</strong> can go — that spotting a problem and having the drive to build the solution can create something that matters. That's exactly the energy I want to bring into marketing.
+    </p>
+
+    <div class="cta">
+      <a href="index.html#contact">Get in touch →</a>
+    </div>
+
+  </div>
+</body>
+</html>
