@@ -755,5 +755,24 @@
     © 2026 Andrea Obregon Alonso
   </footer>
 
+  <script>
+    // When arriving with a #hash (e.g. from the case study "Get in touch" link),
+    // re-scroll to the target after images finish loading, so lazy-loaded photos
+    // don't push the section out of view. Instant jumps + retries are more
+    // reliable than a single smooth scroll on load.
+    (function () {
+      function jumpToHash() {
+        if (!location.hash) return;
+        var el = document.querySelector(location.hash);
+        if (el) el.scrollIntoView();
+      }
+      window.addEventListener('load', function () {
+        jumpToHash();
+        setTimeout(jumpToHash, 150);
+        setTimeout(jumpToHash, 500);
+      });
+    })();
+  </script>
+
 </body>
 </html>
