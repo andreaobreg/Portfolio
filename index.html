@@ -350,32 +350,26 @@
     .personal-sub { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; max-width: 620px; }
 
     .photo-masonry {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: clamp(180px, 19vw, 260px);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 1.1rem;
       max-width: 1300px;
     }
 
+    /* fixed height + auto width keeps each photo complete (uncropped),
+       tiling them into centered rows so there's minimal blank space */
     .photo-masonry img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: clamp(200px, 24vw, 310px);
+      width: auto;
+      max-width: 100%;
       border-radius: 14px;
       display: block;
       box-shadow: 0 8px 28px rgba(28,48,71,0.10);
     }
 
-    /* first photo spans two columns so 5 photos fill a clean block */
-    .photo-masonry img:first-child { grid-column: span 2; }
-
-    @media (max-width: 860px) {
-      .photo-masonry { grid-template-columns: repeat(2, 1fr); }
-      .photo-masonry img:first-child { grid-column: span 2; }
-    }
     @media (max-width: 520px) {
-      .photo-masonry { grid-template-columns: 1fr; grid-auto-rows: 220px; }
-      .photo-masonry img:first-child { grid-column: span 1; }
+      .photo-masonry img { height: auto; width: 100%; }
     }
 
     .personal-hobbies {
