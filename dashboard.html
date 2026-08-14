@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lab Dashboard · Case Study · Andrea Obregon</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='24'%20fill='%236b8fb0'/%3E%3Ctext%20x='50'%20y='56'%20font-family='Georgia,serif'%20font-size='42'%20fill='%23faf7f2'%20text-anchor='middle'%20dominant-baseline='middle'%3EAO%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -122,7 +123,13 @@
     }
     ul.pretty strong { color: var(--blue-dark); font-weight: 600; }
 
-    figure { margin: 2.5rem 0; }
+    figure {
+      margin: 3rem 0;
+      width: min(1150px, 92vw);
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
     figure img {
       width: 100%;
       border-radius: 14px;
@@ -169,6 +176,16 @@
       transition: background 0.2s;
     }
     .cta a:hover { background: var(--blue-mid); }
+
+    .cta .cta-secondary {
+      display: block;
+      background: none;
+      color: var(--blue-mid);
+      margin-top: 1.25rem;
+      padding: 0;
+      font-weight: 500;
+    }
+    .cta .cta-secondary:hover { background: none; color: var(--blue-accent); }
   </style>
 </head>
 <body>
@@ -277,6 +294,7 @@
 
     <div class="cta">
       <a href="index.html#contact">Get in touch →</a>
+      <a class="cta-secondary" href="index.html">← Back to Andrea Obregon</a>
     </div>
 
   </div>
